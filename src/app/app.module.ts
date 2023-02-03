@@ -11,13 +11,15 @@ import { UserComponent } from './user/user.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { UserInfoComponent } from './user-info/user-info.component';
 import { UserService } from './user.service';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserComponent,
     UserListComponent,
-    UserInfoComponent
+    UserInfoComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

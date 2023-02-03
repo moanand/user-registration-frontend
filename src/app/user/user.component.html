@@ -1,1 +1,204 @@
-<p>user works!</p>
+<div class="card">
+  <h5 class="card-header text-bg-success text-center">
+    User Registration Form
+  </h5>
+  <div class="card-body">
+    <form [formGroup]="userRegistration" (ngSubmit)="register()">
+      <div class="row">
+        <div class="col-2">
+          <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <select class="form-select" id="title" formControlName="title">
+              <option></option>
+              <option value="Mr">Mr</option>
+              <option value="Mrs">Mrs</option>
+              <option value="Ms">Ms</option>
+              <option value="Master">Master</option>
+            </select>
+          </div>
+        </div>
+        <div class="col">
+          <div class="mb-3">
+            <label for="firstName" class="form-label">First Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="firstName"
+              formControlName="firstName"
+            />
+          </div>
+        </div>
+        <div class="col">
+          <div class="mb-3">
+            <label for="lastName" class="form-label">Last Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="lastName"
+              formControlName="lastName"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-3">
+          <div class="mb-3">
+            <label for="birthDate" class="form-label">Date of Birth</label>
+            <input
+              type="date"
+              class="form-control"
+              id="birthDate"
+              formControlName="birthDate"
+            />
+          </div>
+        </div>
+        <div class="col">
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              formControlName="email"
+            />
+          </div>
+        </div>
+        <div class="col">
+          <div class="mb-3">
+            <label for="phone" class="form-label">Phone</label>
+            <input
+              type="text"
+              class="form-control"
+              id="phone"
+              formControlName="phone"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <h5 class="card-header text-bg-success">Complete Address</h5>
+        </div>
+        <div class="col"></div>
+        <div class="col"></div>
+      </div>
+      <div formGroupName="address">
+        <div class="row">
+          <div class="col">
+            <label for="addressLine" class="form-label">Home Address</label>
+            <textarea
+              class="form-control"
+              placeholder="Enter your address"
+              id="addressLine"
+              formControlName="addressLine"
+              style="height: 100px"
+            ></textarea>
+          </div>
+          <div class="col">
+            <div class="mb-3">
+              <label for="country" class="form-label">Country</label>
+              <input
+                type="text"
+                class="form-control"
+                id="country"
+                formControlName="country"
+              />
+            </div>
+          </div>
+          <div class="col">
+            <div class="mb-3">
+              <label for="state" class="form-label">State</label>
+              <input
+                type="text"
+                class="form-control"
+                id="state"
+                formControlName="state"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="mb-3">
+              <label for="city" class="form-label">City</label>
+              <input
+                type="text"
+                class="form-control"
+                id="city"
+                formControlName="city"
+              />
+            </div>
+          </div>
+          <div class="col">
+            <div class="mb-3">
+              <label for="pinCode" class="form-label">Pincode</label>
+              <input
+                type="text"
+                class="form-control"
+                id="pinCode"
+                formControlName="pinCode"
+              />
+            </div>
+          </div>
+          <div class="col"></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input
+              type="password"
+              class="form-control"
+              id="password"
+              formControlName="password"
+            />
+          </div>
+        </div>
+        <div class="col">
+          <div class="mb-3">
+            <label for="confirmPassword" class="form-label"
+              >Confirm Password</label
+            >
+            <input
+              type="password"
+              class="form-control"
+              id="confirmPassword"
+              formControlName="confirmPassword"
+            />
+          </div>
+        </div>
+        <div class="col"></div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="mb-3 form-check">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              id="isTncAccepted"
+              formControlName="isTncAccepted"
+            />
+            <label class="form-check-label" for="isTncAccepted"
+              >Accept Terms & Conditions</label
+            >
+          </div>
+        </div>
+      </div>
+      <div class="row text-center">
+        <div class="col">
+          <button type="submit" class="btn btn-lg btn-success me-3">
+            Submit
+          </button>
+          <button
+            type="button"
+            class="btn btn-lg btn-danger"
+            (click)="cancelRegForm()"
+          >
+            Cancel
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

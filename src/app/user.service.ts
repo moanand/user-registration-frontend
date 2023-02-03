@@ -23,6 +23,6 @@ export class UserService {
   }
 
   getUserById(userId: number): Observable<any> {
-    return this._httpClient.get(this.BASE_URL + `/user/${userId}`);
+    return this._httpClient.get(this.BASE_URL + `/users/${userId}`);
   }
 }

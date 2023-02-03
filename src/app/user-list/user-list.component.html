@@ -1,28 +1,47 @@
 <div class="container">
-  <input class="btn btn-info mb-2" style="float: right;" type="button" value="Add User"/>
+  <div class="card">
+    <h5 class="card-header">User List</h5>
+    <div class="card-body">
+      <input
+      class="btn btn-lg btn-info mb-2"
+      style="float: right"
+      type="button"
+      value="Add User"
+      (click)="showUserRegistrationPage()"
+    />
+      <table class="table table-success table-striped">
+        <thead>
+          <tr>
+            <th>UID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of userList">
+            <td>{{ user.uid }}</td>
+            <td>{{ user.firstName }} {{ user.lastName }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.phone }}</td>
+            <td>
+              <i
+                class="fa fa-eye text-danger fa-align-center fa-lg me-3"
+                (click)="viewUserInfo(user.uid)"
+              ></i>
+              <i
+                class="fa fa-edit text-dark fa-align-center fa-lg me-3"
+                (click)="editUser(user.uid)"
+              ></i>
+              <i
+                class="fa fa-trash text-danger fa-align-center fa-lg"
+                (click)="deleteUser(user.uid)"
+              ></i>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>
-  <table class="table table-success table-striped">
-    <thead>
-      <tr>
-        <th>UID</th>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Phone</th>
-        <th>Action</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let user of userList">
-        <td>{{ user.sid }}</td>
-        <td>{{ user.firstName }} {{ user.lastName }}</td>
-        <td>{{ user.email }}</td>
-        <td>{{ user.phone }}</td>
-        <td>
-          <input class="btn btn-primary col-3 me-sm-2" type="button" value="View Details"/>
-          <input class="btn btn-warning col-3 me-sm-2" type="button" value="Edit"/>
-          <input class="btn btn-danger col-3 me-sm-2" type="button" value="Delete"/>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-  <app-user-info></app-user-info>

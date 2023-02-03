@@ -7,12 +7,15 @@
       User Detail Information
     </div>
     <div class="card-body bg-black text-white">
-      <h5 class="card-title text-center">{{user.firstName}} {{user.lastName}}</h5><hr>
+      <h5 class="card-title text-center">
+        {{ user.firstName }} {{ user.lastName }}
+      </h5>
+      <hr />
       <div class="card-text">
         <div class="row">
           <div class="col">UserID</div>
           <div class="col">
-            <p>{{ user.sid }}</p>
+            <p>{{ user.uid }}</p>
           </div>
         </div>
         <div class="row">
@@ -46,13 +49,42 @@
           </div>
         </div>
         <div class="row">
-          <div class="col">Address</div>
+          <div class="col text-center" style="font-size: larger">
+            Address Information
+          </div>
+        </div>
+        <hr />
+        <div class="row">
+          <div class="col">Home Address</div>
           <div class="col">
-            <p>{{ user.address }}</p>
+            <p>{{ user.address.addressLine }}</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">City</div>
+          <div class="col">
+            <p>{{ user.address.city }}</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">State</div>
+          <div class="col">
+            <p>{{ user.address.state }}</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">Pincode</div>
+          <div class="col">
+            <p>{{ user.address.pinCode }}</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">Country</div>
+          <div class="col">
+            <p>{{ user.address.country }}</p>
           </div>
         </div>
       </div>
     </div>
-    <a href="#" class="btn btn-primary" style="float: left;">Go somewhere</a>
   </div>
 </div>
