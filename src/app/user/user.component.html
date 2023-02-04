@@ -5,6 +5,21 @@
   <div class="card-body">
     <form [formGroup]="userRegistration" (ngSubmit)="register()">
       <div class="row">
+        <div class="col">
+          <div class="mb-3">
+            <label for="username" class="form-label">Username</label>
+            <input
+              type="text"
+              class="form-control"
+              id="username"
+              formControlName="username"
+            />
+          </div>
+        </div>
+        <div class="col"></div>
+        <div class="col"></div>
+      </div>
+      <div class="row">
         <div class="col-2">
           <div class="mb-3">
             <label for="title" class="form-label">Title</label>
@@ -77,10 +92,9 @@
       </div>
       <div class="row">
         <div class="col">
-          <h5 class="card-header text-bg-success">Complete Address</h5>
+          <h4 class="text-white text-bg-warning text-center">Complete Address</h4>
         </div>
-        <div class="col"></div>
-        <div class="col"></div>
+        
       </div>
       <div formGroupName="address">
         <div class="row">

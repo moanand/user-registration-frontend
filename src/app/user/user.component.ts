@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
+import { Address } from "../model/address.model";
 import { User } from "../model/user.model";
 import { UserService } from "../user.service";
 
@@ -10,12 +11,25 @@ import { UserService } from "../user.service";
   styleUrls: ["./user.component.css"],
 })
 export class UserComponent implements OnInit {
-  userRegistration!: FormGroup<any>;
+  userRegistration!: FormGroup;
+  user!: User;
+  address!: Address;
 
-  constructor(private router: Router, private userService: UserService) {}
+  constructor(private router: Router, private userService: UserService) {
+    this.user = new User();
+    this.address = new Address();
+  }
 
   ngOnInit(): void {
     this.userRegistration = new FormGroup({
+      username: new FormControl(
+        "",
+        Validators.compose([
+          Validators.required,
+          Validators.minLength(5),
+          Validators.maxLength(10),
+        ])
+      ),
       title: new FormControl("", Validators.required),
       firstName: new FormControl(
         "",
@@ -82,8 +96,24 @@ export class UserComponent implements OnInit {
     });
   }
   register() {
-    //this.userService.saveUser(this.userRegistration.value);
-    console.log("========> " + this.userRegistration);
+    console.log(this.userRegistration.value);
+    this.userService.saveUser(this.userRegistration.value).subscribe(
+      (response) => {
+        console.log(response);
+        this.user = response;
+        this.cancelRegForm();
+      },
+      (err) => {
+        console.log(err.error);
+        console.log(err.headers);
+        console.log(err.message);
+        console.log(err.name);
+        console.log(err.ok);
+        console.log(err.status);
+        console.log(err.statusText);
+        console.log(err.url);
+      }
+    );
   }
 
   cancelRegForm() {
